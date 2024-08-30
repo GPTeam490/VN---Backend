@@ -1,0 +1,112 @@
+body {
+  font-family: Arial;
+  margin: 0;
+  padding: 0;
+  background-color: white;
+}
+
+header {
+  background-color: pink;
+  color: white;
+  padding: 10px 0;
+  text-align: center;
+}
+
+.center {
+  display: block;
+  margin: 100px auto;
+  width: 200px;
+  height: auto;
+}
+
+.boxes {
+  width: 300px;
+  margin: 20px auto;
+  background-color: transparent;
+}
+
+.boxes label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: black;
+}
+
+.boxes input[type="text"] {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+}
+
+.result-box {
+  width: 100%;
+  height: 100px;
+  background-color: white;
+  overflow-y: auto;
+  font-size: 14px;
+  color: black;
+}
+
+/* Set initial state for the logo */
+.logoVac {
+  opacity: 0;
+  animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+/* Keyframes for fade-in effect */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    top: -50px;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Set initial state for the logo */
+.logoNow {
+  opacity: 0;
+  animation: fadeIn2 0.75s ease-in-out forwards;
+  animation-delay: 0.25s;
+}
+
+/* Keyframes for fade-in effect */
+@keyframes fadeIn2 {
+  from {
+    opacity: 0;
+    top: -630px;
+  }
+  to {
+    opacity: 1;
+    top: -750px;
+  }
+}
+
+.planeFly {
+  transition: transform 1s ease;
+  cursor: pointer;
+}
+
+.planeFly:hover {
+  animation: flyAround 2s infinite ease-in-out;
+}
+
+@keyframes flyAround {
+  0% {
+    transform: translate(0px, 0px) rotate(0deg);
+    opacity: 1;
+  }
+
+  25% {
+    opacity: 1;
+  }
+  50% {
+    transform: translate(200px, 200px) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(400px, -200px) rotate(-45deg);
+    opacity: 1;
+  }
+}

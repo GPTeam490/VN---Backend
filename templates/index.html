@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="vacationnow.png" />
+    <title>VacationNow</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark  bg-dark">
+        <a class="navbar-brand" href="index.html">VacationNow</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Features</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <!-- Use col classes to control the width and alignment -->
+        <div class="col-6 col-md-4 text-right">
+            <img class="img-fluid logoVac" style = "margin-left: 55%;" src="https://cdn.glitch.global/77105255-0124-41fb-ba07-bef775dd6c97/vac.png?v=1724964469624" alt="Vacation Logo">
+        </div>
+        <div class="col-6 col-md-4 text-left">
+            <img class="img-fluid logoNow" style = "margin-left: -55%;" src="https://cdn.glitch.global/77105255-0124-41fb-ba07-bef775dd6c97/now.png?v=1724964493114" alt="Now Logo">
+        </div>
+    </div>
+</div>
+
+
+    <div class="container mt-5">
+        <h1 class="text-center">Travel Recommendations</h1>
+        <form method="POST" class="my-4">
+            <div class="form-group">
+                <label for="city">City:</label>
+                <input type="text" class="form-control" id="city" name="city" required />
+            </div>
+            <div class="form-group">
+                <label for="month">Month:</label>
+                <input type="text" class="form-control" id="month" name="month" required />
+            </div>
+            <div class="form-group">
+                <label for="duration">Duration:</label>
+                <input type="text" class="form-control" id="duration" name="duration" placeholder="e.g., 3 days" required />
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Get Recommendations</button>
+        </form>
+
+        {% if recommendations %}
+        <h2 class="mt-5">Recommendations for {{ city }} in {{ month }} ({{ duration }})</h2>
+        <table class="table table-striped mt-3">
+            <thead>
+                <tr>
+                    <th>Activity</th>
+                    <th>Best Season</th>
+                    <th>Time Needed</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for rec in recommendations %}
+                <tr>
+                    <td>{{ rec.activity }}</td>
+                    <td>{{ rec.best_season }}</td>
+                    <td>{{ rec.time_needed }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% elif error %}
+        <div class="alert alert-danger mt-4" role="alert">{{ error }}</div>
+        {% endif %}
+    </div>
+
+    <footer></footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

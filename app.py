@@ -64,12 +64,12 @@ def index():
         recommendations = get_recommendations(city, month, duration)
 
         if recommendations is not None:
-            return render_template('recommendations.html', recommendations=recommendations, city=city, month=month,
+            return render_template('index.html', recommendations=recommendations, city=city, month=month,
                                    duration=duration)
         else:
             error_message = "Failed to fetch recommendations. Please try again."
-            return render_template('recommendations.html', error=error_message)
-    return render_template('recommendations.html')
+            return render_template('index.html', error=error_message)
+    return render_template('index.html')
 
 
 if __name__ == '__main__':
