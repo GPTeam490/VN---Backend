@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vacation Itinerary Generator</title>
+</head>
+<body>
+    <h1>Generate Your Vacation Itinerary</h1>
+    <form action="/generate" method="POST">
+        <label for="days">Number of Days:</label>
+        <input type="text" id="days" name="days" required><br><br>
+        <label for="location">Location:</label>
+        <input type="text" id="location" name="location" required><br><br>
+        <label for="month">Month:</label>
+        <input type="text" id="month" name="month" required><br><br>
+        <input type="submit" value="Generate Itinerary">
+    </form>
+
+    {% if itinerary %}
+        <h2>Your Itinerary:</h2>
+        <p>{{ itinerary }}</p>
+    {% endif %}
+</body>
+</html>
