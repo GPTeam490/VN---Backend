@@ -1,0 +1,218 @@
+body {
+  font-family: "MyFont", Sans-Serif;
+  letter-spacing: -1px;
+  margin: 0;
+  padding: 0;
+  background-color: white;
+}
+
+header {
+  background-color: pink;
+  color: white;
+  padding: 10px 0;
+  text-align: center;
+}
+
+.center {
+  display: block;
+  margin: 100px auto;
+  width: 200px;
+  height: auto;
+}
+
+.boxes {
+  width: 300px;
+  margin: 20px auto;
+  background-color: transparent;
+}
+
+.boxes label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: black;
+}
+
+.boxes input[type="text"] {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+}
+
+.result-box {
+  width: 100%;
+  height: 100px;
+  background-color: white;
+  overflow-y: auto;
+  font-size: 14px;
+  color: black;
+}
+
+.lavender {
+   background-color: #9792ec;
+}
+
+/* custom fonts */
+@font-face {
+  font-family: "MyFont";
+  src: url("https://cdn.glitch.global/294282c5-9e0f-4966-975b-532832b447ad/AlteHaasGroteskBold.ttf?v=1725048974005")
+    format("opentype");
+
+  font-style: normal;
+}
+
+.palosans {
+  font-family: "MyFont", sans-serif;
+  letter-spacing: 0px;
+}
+
+/* Set initial state for the logo */
+.logoVac {
+  opacity: 0;
+  animation: fadeIn 0.5s ease-in-out forwards;
+  position: relative
+}
+
+/* Keyframes for fade-in effect */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    left: -50px;
+  }
+  to {
+    opacity: 1;
+    left: 0px;
+  }
+}
+
+/* Set initial state for the logo */
+.logoNow {
+  opacity: 0;
+  animation: fadeIn2 0.75s ease-in-out forwards;
+  animation-delay: 0.25s;
+  position: relative;
+}
+
+/* Keyframes for fade-in effect */
+@keyframes fadeIn2 {
+  from {
+    opacity: 0;
+     top: 50px;
+  }
+  to {
+    opacity: 1;
+    top: 0px;
+  }
+}
+
+.planeFly {
+  transition: transform 1s ease;
+  cursor: pointer;
+}
+
+.planeFly:hover {
+  animation: flyAround 2s infinite ease-in-out;
+}
+
+@keyframes flyAround {
+  0% {
+    transform: translate(0px, 0px) rotate(0deg);
+    opacity: 1;
+  }
+
+  25% {
+    opacity: 1;
+  }
+  50% {
+    transform: translate(200px, 200px) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(400px, -200px) rotate(-45deg);
+    opacity: 1;
+  }
+}
+
+/* moving background element logic */
+.box-area {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -2;
+}
+
+.box-area li {
+  position: absolute;
+  display: inline-block;
+  list-style: none;
+  width: 90px;
+  height: 90px;
+  animation: animate 20s linear infinite;
+  bottom: -150px;
+  z-index: -2;
+}
+
+.box-area li:nth-child(1) {
+  left: 86%;
+  width: 80px;
+  height: 80px;
+  animation-delay: 0s;
+}
+
+.box-area li:nth-child(2) {
+  left: 12%;
+  width: 80px;
+  height: 80px;
+  animation-delay: 1.5s;
+  animation-duration: 10s;
+}
+
+.box-area li:nth-child(3) {
+  left: 70%;
+  width: 150px;
+  height: 150px;
+  animation-delay: 5.5s;
+}
+
+.box-area li:nth-child(4) {
+  left: 42%;
+  width: 150px;
+  height: 150px;
+  animation-delay: 0s;
+  animation-duration: 15s;
+}
+.box-area li:nth-child(5) {
+  left: 65%;
+  width: 40px;
+  height: 40px;
+  animation-delay: 0s;
+}
+
+.box-area li:nth-child(6) {
+  left: 30%;
+  width: 70px;
+  height: 70px;
+  animation-delay: 2s;
+}
+
+@keyframes animate {
+  0% {
+    transform: translateY(0);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-800px);
+    opacity: 0;
+  }
+}
+
+.popout {
+  transition: transform 0.3s ease;
+}
+
+.popout:hover {
+  transform: scale(1.1);
+}
