@@ -87,8 +87,10 @@
             class="form-control"
             id="city"
             name="city"
-            placeholder="e.g., San Francisco, Folsom"
+            placeholder="e.g., San Francisco, Paris"
             required
+            pattern="[A-Za-z\s]+"
+            title="Please enter a valid city name."
           />
         </div>
         <div class="form-group">
@@ -100,6 +102,8 @@
             name="month"
             placeholder="e.g., January, February"
             required
+            pattern="(January|February|March|April|May|June|July|August|September|October|November|December)"
+            title="Please enter a valid month."
           />
         </div>
         <div class="form-group">
@@ -109,8 +113,10 @@
             class="form-control"
             id="duration"
             name="duration"
-            placeholder="e.g., 3 days"
+            placeholder="e.g., 3"
             required
+            min="1"
+            title="Duration must be a positive number."
           />
         </div>
         <button type="submit" class="btn btn-primary btn-block">Get Recommendations</button>
